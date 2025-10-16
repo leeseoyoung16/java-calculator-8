@@ -10,4 +10,8 @@ public class Calculate {
         String input =  sc.nextLine();
         return input;
     }
+    //2. 결과 출력
+    public static void displayResult(int sum) {
+        System.out.println("결과: " + sum);
+    }
 }
