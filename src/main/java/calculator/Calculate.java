@@ -14,4 +14,8 @@ public class Calculate {
     public static void displayResult(int sum) {
         System.out.println("결과: " + sum);
     }
+    //3. 특수 구분자 판별
+    public static boolean checkCustomSeparator(String input) {
+        return (input.startsWith("//") && input.contains("\n"));
+    }
 }
