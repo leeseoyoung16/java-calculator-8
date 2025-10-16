@@ -31,4 +31,15 @@ public class CalculateTest {
         //then
         assertEquals("12;3;4",  splitCustomSeparator);
     }
+    //5. 특수 구분자 도출
+    @Test
+    void getSeparatorTest() {
+        //given
+        String custom = "//;\n12;3;4";
+        Calculate cal = new Calculate();
+        //when
+        char separator = cal.getSeparator(custom);
+        //then
+        assertEquals(';', separator);
+    }
 }
