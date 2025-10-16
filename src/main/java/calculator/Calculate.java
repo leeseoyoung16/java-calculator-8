@@ -24,4 +24,8 @@ public class Calculate {
         String removeInput = input.substring(4);
         return removeInput;
     }
+    //5. 특수 구분자 도출
+    public static char getSeparator(String input) {
+        return input.charAt(2);
+    }
 }
