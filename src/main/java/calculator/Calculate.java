@@ -18,13 +18,17 @@ public class Calculate {
     }
     //3. 특수 구분자 판별
     public static boolean checkCustomSeparator(String input) {
-        return (input.startsWith("//") && input.contains("\n"));
+        return (input.startsWith("//") && input.contains("\\n"));
     }
     //4. 구분자 선언부 제거
     public static String removeSeparator(String input) {
-        String splitInput;
-        String removeInput = input.substring(4);
-        return removeInput;
+        int startIndex = -1;
+        if (input.contains("\\n"))
+            startIndex = input.indexOf("\\n")+2;
+        if (input.contains("\n"))
+            startIndex = input.indexOf("\n")+1;
+        System.out.println(input.substring(startIndex));
+        return input.substring(startIndex);
     }
     //5. 특수 구분자 도출
     public static char getSeparator(String input) {
@@ -66,15 +70,5 @@ public class Calculate {
             }
         }
         return list;
-
-    }
-    //8. 합계 계산
-    public static int addSum(List<String> list) {
-        int sum = 0;
-        for(String c : list) {
-            int convertInt = Integer.parseInt(c);
-            sum += convertInt;
-        }
-        return sum;
     }
 }
