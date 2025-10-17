@@ -93,4 +93,17 @@ public class CalculateTest {
         //then
         assertEquals(expectedResult, result);
     }
+    //8. 합계 계산
+    @Test
+    void addSumTest() {
+        //given
+        ArrayList<String> list = new ArrayList<>();
+        list.add("12");
+        list.add("3");
+        list.add("4");
+        //when
+        int sum = Calculate.addSum(list);
+        //then
+        assertEquals(19,sum);
+    }
 }
