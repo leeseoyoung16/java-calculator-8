@@ -53,9 +53,9 @@ public class CalculateTest {
         char[] customSeparator = new char[] {';'};
         Calculate cal = new Calculate();
         //when
-        boolean normalCase = cal.isVaildCharacter(normal, normalSeparator);
-        boolean customCase = cal.isVaildCharacter(custom, customSeparator);
-        boolean errorCase = cal.isVaildCharacter(error, normalSeparator);
+        boolean normalCase = cal.isValidCharacter(normal, normalSeparator);
+        boolean customCase = cal.isValidCharacter(custom, customSeparator);
+        boolean errorCase = cal.isValidCharacter(error, normalSeparator);
         //then[
         assertTrue(normalCase);
         assertTrue(customCase);
