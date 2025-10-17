@@ -71,4 +71,13 @@ public class Calculate {
         }
         return list;
     }
+    //8. 합계 계산
+    public static int addSum(List<String> list) {
+        int sum = 0;
+        for(String c : list) {
+            int convertInt = Integer.parseInt(c);
+            sum += convertInt;
+        }
+        return sum;
+    }
 }
