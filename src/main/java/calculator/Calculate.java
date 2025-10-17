@@ -56,16 +56,16 @@ public class Calculate {
         ArrayList<String> list = new ArrayList<>();
         String splitInput = "";
 
-        for(int i=0; i<input.length(); i++) {
+        for (int i = 0; i < input.length(); i++) {
             char c = input.charAt(i);
-            if(isSeparator(c, separator)) {
-                list.add(splitInput);
+            if (isSeparator(c, separator)) {
+                if (!splitInput.isEmpty()) list.add(splitInput);
                 splitInput = "";
             } else {
                 splitInput += c;
             }
 
-            if(i == input.length()-1) {
+            if (i == input.length() - 1 && !splitInput.isEmpty()) {
                 list.add(splitInput);
             }
         }
