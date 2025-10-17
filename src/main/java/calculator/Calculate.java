@@ -18,7 +18,7 @@ public class Calculate {
     }
     //3. 특수 구분자 판별
     public static boolean checkCustomSeparator(String input) {
-        return (input.startsWith("//") && input.contains("\\n"));
+        return (input.startsWith("//") && (input.contains("\\n") || input.contains("\n")));
     }
     //4. 구분자 선언부 제거
     public static String removeSeparator(String input) {
