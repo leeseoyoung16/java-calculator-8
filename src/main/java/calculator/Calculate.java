@@ -28,8 +28,8 @@ public class Calculate {
     public static char getSeparator(String input) {
         return input.charAt(2);
     }
-    //식별자 외 문자인지 판별
-    public static boolean isValidCharacter(char c, char[] separator) {
+    //식별자 문자인지 판별
+    public static boolean isSeparator(char c, char[] separator) {
         for(char s : separator) {
             if(s == c) return true;
         }
@@ -40,7 +40,7 @@ public class Calculate {
         for(int i=0; i<input.length(); i++) {
             char c = input.charAt(i);
             if(!Character.isDigit(c)) {
-                if(!isValidCharacter(c, separator)) return false;
+                if(!isSeparator(c, separator)) return false;
             }
         }
         return true;

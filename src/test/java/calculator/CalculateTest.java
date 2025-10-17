@@ -39,7 +39,7 @@ public class CalculateTest {
         //then
         assertEquals(';', separator);
     }
-    //식별자 외 문자인지 판별
+    //식별자인지 판별
     @Test
     void isValidCharacterTest() {
         //given
@@ -49,9 +49,9 @@ public class CalculateTest {
         char[] normalSeparator = new char[] {',',':'};
         char[] customSeparator = new char[] {';'};
         //when
-        boolean normalCase = Calculate.isValidCharacter(normal, normalSeparator);
-        boolean customCase = Calculate.isValidCharacter(custom, customSeparator);
-        boolean errorCase = Calculate.isValidCharacter(error, normalSeparator);
+        boolean normalCase = Calculate.isSeparator(normal, normalSeparator);
+        boolean customCase = Calculate.isSeparator(custom, customSeparator);
+        boolean errorCase = Calculate.isSeparator(error, normalSeparator);
         //then[
         assertTrue(normalCase);
         assertTrue(customCase);
