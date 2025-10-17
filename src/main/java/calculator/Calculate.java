@@ -80,4 +80,24 @@ public class Calculate {
         }
         return sum;
     }
+
+    public void run() {
+        String input = getInput();
+        char[] separator = new char[]{',',':'};
+        String removeInput = input;
+
+        if(checkCustomSeparator(input)) {
+            char customSeparator = getSeparator(input);
+            separator = new char[]{customSeparator};
+            removeInput = removeSeparator(input);
+        }
+
+        if(!isValidInput(removeInput, separator)) {
+            throw new IllegalArgumentException("잘못된 입력입니다.");
+        }
+
+        List<String> list = splitBySeparator(removeInput, separator);
+        int sum = addSum(list);
+        displayResult(sum);
+    }
 }
