@@ -11,10 +11,9 @@ public class CalculateTest {
         //given
         String normal = "12:3,4";
         String custom = "//;\n12;3;4";
-        Calculate cal = new Calculate();
         //when
-        boolean normalResult = cal.checkCustomSeparator(normal);
-        boolean customResult = cal.checkCustomSeparator(custom);
+        boolean normalResult = Calculate.checkCustomSeparator(normal);
+        boolean customResult = Calculate.checkCustomSeparator(custom);
         //then
         assertFalse(normalResult);
         assertTrue(customResult);
@@ -25,9 +24,8 @@ public class CalculateTest {
     void removeSeparatorTest() {
         //given
         String custom = "//;\n12;3;4";
-        Calculate cal = new Calculate();
         //when
-        String splitCustomSeparator = cal.removeSeparator(custom);
+        String splitCustomSeparator = Calculate.removeSeparator(custom);
         //then
         assertEquals("12;3;4",  splitCustomSeparator);
     }
@@ -36,9 +34,8 @@ public class CalculateTest {
     void getSeparatorTest() {
         //given
         String custom = "//;\n12;3;4";
-        Calculate cal = new Calculate();
         //when
-        char separator = cal.getSeparator(custom);
+        char separator = Calculate.getSeparator(custom);
         //then
         assertEquals(';', separator);
     }
@@ -51,11 +48,10 @@ public class CalculateTest {
         char error = '?';
         char[] normalSeparator = new char[] {',',':'};
         char[] customSeparator = new char[] {';'};
-        Calculate cal = new Calculate();
         //when
-        boolean normalCase = cal.isValidCharacter(normal, normalSeparator);
-        boolean customCase = cal.isValidCharacter(custom, customSeparator);
-        boolean errorCase = cal.isValidCharacter(error, normalSeparator);
+        boolean normalCase = Calculate.isValidCharacter(normal, normalSeparator);
+        boolean customCase = Calculate.isValidCharacter(custom, customSeparator);
+        boolean errorCase = Calculate.isValidCharacter(error, normalSeparator);
         //then[
         assertTrue(normalCase);
         assertTrue(customCase);
@@ -70,11 +66,10 @@ public class CalculateTest {
         String error = "12?4/5";
         char[] normalSeparator = new char[] {',',':'};
         char[] customSeparator = new char[] {';'};
-        Calculate cal = new Calculate();
         //when
-        boolean normalCase = cal.isValidInput(normal, normalSeparator);
-        boolean customCase = cal.isValidInput(custom,  customSeparator);
-        boolean errorCase = cal.isValidInput(error, normalSeparator);
+        boolean normalCase = Calculate.isValidInput(normal, normalSeparator);
+        boolean customCase = Calculate.isValidInput(custom,  customSeparator);
+        boolean errorCase = Calculate.isValidInput(error, normalSeparator);
         //then
         assertTrue(normalCase);
         assertTrue(customCase);
