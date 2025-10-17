@@ -2,6 +2,8 @@ package calculator;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculateTest {
@@ -74,5 +76,21 @@ public class CalculateTest {
         assertTrue(normalCase);
         assertTrue(customCase);
         assertFalse(errorCase);
+    }
+    //7. 문자열 파싱
+    @Test
+    void splitBySeparatorTest() {
+        //given
+        String input = "12:3,4";
+        char[] separator = new char[] {',',':'};
+
+        ArrayList<String> expectedResult = new ArrayList<>();
+        expectedResult.add("12");
+        expectedResult.add("3");
+        expectedResult.add("4");
+        //when
+        ArrayList<String> result = Calculate.splitBySeparator(input, separator);
+        //then
+        assertEquals(expectedResult, result);
     }
 }
