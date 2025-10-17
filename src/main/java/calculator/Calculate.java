@@ -28,4 +28,21 @@ public class Calculate {
     public static char getSeparator(String input) {
         return input.charAt(2);
     }
+    //식별자 외 문자인지 판별
+    public static boolean isValidCharacter(char c, char[] separator) {
+        for(char s : separator) {
+            if(s == c) return true;
+        }
+        return false;
+    }
+    //6. 입력 유효성 검사 (숫자, 식별자에 포함되는 문자)
+    public static boolean isValidInput(String input, char[] separator) {
+        for(int i=0; i<input.length(); i++) {
+            char c = input.charAt(i);
+            if(!Character.isDigit(c)) {
+                if(!isValidCharacter(c, separator)) return false;
+            }
+        }
+        return true;
+    }
 }
