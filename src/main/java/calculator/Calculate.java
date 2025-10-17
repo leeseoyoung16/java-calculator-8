@@ -25,7 +25,7 @@ public class Calculate {
         int startIndex = -1;
         if (input.contains("\\n"))
             startIndex = input.indexOf("\\n")+2;
-        if (input.contains("\n"))
+        else if (input.contains("\n"))
             startIndex = input.indexOf("\n")+1;
         System.out.println(input.substring(startIndex));
         return input.substring(startIndex);
