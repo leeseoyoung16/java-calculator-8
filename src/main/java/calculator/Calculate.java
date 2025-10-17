@@ -1,5 +1,6 @@
 package calculator;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Calculate {
@@ -44,5 +45,26 @@ public class Calculate {
             }
         }
         return true;
+    }
+    //7. 문자열 파싱
+    public static ArrayList<String> splitBySeparator(String input, char[] separator) {
+        ArrayList<String> list = new ArrayList<>();
+        String splitInput = "";
+
+        for(int i=0; i<input.length(); i++) {
+            char c = input.charAt(i);
+            if(isSeparator(c, separator)) {
+                list.add(splitInput);
+                splitInput = "";
+            } else {
+                splitInput += c;
+            }
+
+            if(i == input.length()-1) {
+                list.add(splitInput);
+            }
+
+        }
+        return list;
     }
 }
