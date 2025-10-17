@@ -1,6 +1,7 @@
 package calculator;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Calculate {
@@ -63,8 +64,17 @@ public class Calculate {
             if(i == input.length()-1) {
                 list.add(splitInput);
             }
-
         }
         return list;
+
+    }
+    //8. 합계 계산
+    public static int addSum(List<String> list) {
+        int sum = 0;
+        for(String c : list) {
+            int convertInt = Integer.parseInt(c);
+            sum += convertInt;
+        }
+        return sum;
     }
 }
