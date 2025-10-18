@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculateTest {
+
     //3. 특수 구분자 판별
     @Test
     void checkCustomSeparatorTest() {
@@ -31,7 +32,7 @@ public class CalculateTest {
         //then
         assertEquals("12;3;4",  splitCustomSeparator);
     }
-    //5. 특수 구분자 도출
+    //5. 커스텀 구분자 도출
     @Test
     void getSeparatorTest() {
         //given
@@ -41,7 +42,7 @@ public class CalculateTest {
         //then
         assertEquals(';', separator);
     }
-    //식별자인지 판별
+    //6. 식별자 문자인지 판별
     @Test
     void isValidCharacterTest() {
         //given
@@ -59,7 +60,7 @@ public class CalculateTest {
         assertTrue(customCase);
         assertFalse(errorCase);
     }
-    //6. 입력 유효성 검사 (숫자, 식별자에 포함되는 문자)
+    //7. 입력 유효성 검사 (숫자, 식별자에 포함되는 문자)
     @Test
     void isValidInput() {
         //given
@@ -77,11 +78,11 @@ public class CalculateTest {
         assertTrue(customCase);
         assertFalse(errorCase);
     }
-    //7. 문자열 파싱
+    //8. 문자열 파싱
     @Test
     void splitBySeparatorTest() {
         //given
-        String input = "12:3,4";
+        String input = "12:3,,4,";
         char[] separator = new char[] {',',':'};
 
         ArrayList<String> expectedResult = new ArrayList<>();
@@ -93,7 +94,7 @@ public class CalculateTest {
         //then
         assertEquals(expectedResult, result);
     }
-    //8. 합계 계산
+    //9. 합계 계산
     @Test
     void addSumTest() {
         //given
