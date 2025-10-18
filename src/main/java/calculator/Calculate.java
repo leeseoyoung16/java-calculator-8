@@ -1,15 +1,15 @@
 package calculator;
 
+import camp.nextstep.edu.missionutils.Console;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Calculate {
     //1. 사용자 입력 처리
     public static String getInput() {
         System.out.println("덧셈할 문자열을 입력해주세요.");
-        Scanner sc = new Scanner(System.in);
-        String input =  sc.nextLine();
+        String input = Console.readLine();
         return input;
     }
     //2. 결과 출력
