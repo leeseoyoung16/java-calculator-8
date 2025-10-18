@@ -27,7 +27,6 @@ public class Calculate {
             startIndex = input.indexOf("\\n")+2;
         else if (input.contains("\n"))
             startIndex = input.indexOf("\n")+1;
-        System.out.println(input.substring(startIndex));
         return input.substring(startIndex);
     }
     //5. 커스텀 구분자 도출
