@@ -28,38 +28,38 @@ public class Calculate {
         return input.substring(startIndex);
     }
     //5. 커스텀 구분자 도출
-    public static char getSeparator(String input) {
-        return input.charAt(2);
+    public static String getSeparator(String input) {
+        return String.valueOf(input.charAt(2));
     }
     //6. 식별자 문자인지 판별
-    public static boolean isSeparator(char c, char[] separator) {
-        for(char s : separator) {
-            if(s == c) return true;
+    public static boolean isSeparator(String s, String[] separator) {
+        for(String sep : separator) {
+            if(sep.equals(s)) return true;
         }
         return false;
     }
     //7. 입력 유효성 검사 (숫자, 식별자에 포함되는 문자)
-    public static boolean isValidInput(String input, char[] separator) {
+    public static boolean isValidInput(String input, String[] separator) {
         for(int i=0; i<input.length(); i++) {
-            char c = input.charAt(i);
-            if(!Character.isDigit(c)) {
-                if(!isSeparator(c, separator)) return false;
+            String s = String.valueOf(input.charAt(i));
+            if(!Character.isDigit(input.charAt(i))) {
+                if(!isSeparator(s, separator)) return false;
             }
         }
         return true;
     }
     //8. 문자열 파싱
-    public static ArrayList<String> splitBySeparator(String input, char[] separator) {
+    public static ArrayList<String> splitBySeparator(String input, String[] separator) {
         ArrayList<String> list = new ArrayList<>();
         String splitInput = "";
 
         for (int i = 0; i < input.length(); i++) {
-            char c = input.charAt(i);
-            if (isSeparator(c, separator)) {
+            String s = String.valueOf(input.charAt(i));
+            if (isSeparator(s, separator)) {
                 if (!splitInput.isEmpty()) list.add(splitInput);
                 splitInput = "";
             } else {
-                splitInput += c;
+                splitInput += s;
             }
 
             if (i == input.length() - 1 && !splitInput.isEmpty()) {
@@ -80,12 +80,12 @@ public class Calculate {
 
     public void run() {
         String input = getInput();
-        char[] separator = new char[]{',',':'};
+        String[] separator = new String[]{",",":"};
         String removeInput = input;
 
         if(checkCustomSeparator(input)) {
-            char customSeparator = getSeparator(input);
-            separator = new char[]{customSeparator};
+            String customSeparator = getSeparator(input);
+            separator = new String[]{customSeparator};
             removeInput = removeSeparator(input);
         }
 
