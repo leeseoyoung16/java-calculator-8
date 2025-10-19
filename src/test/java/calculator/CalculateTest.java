@@ -13,7 +13,7 @@ public class CalculateTest {
     void checkCustomSeparatorTest() {
         //given
         String normal = "12:3,4";
-        String custom = "//;\n12;3;4";
+        String custom = "//;\\n12;3;4";
         //when
         boolean normalResult = Calculate.checkCustomSeparator(normal);
         boolean customResult = Calculate.checkCustomSeparator(custom);

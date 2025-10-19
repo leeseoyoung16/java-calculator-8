@@ -10,10 +10,6 @@ public class Calculate {
     public static String getInput() {
         System.out.println("덧셈할 문자열을 입력해주세요.");
         String input = Console.readLine();
-        if(input.startsWith("//")) {
-            String addStr = Console.readLine();
-            input += "\n" + addStr;
-        }
         return input;
     }
     //2. 결과 출력
@@ -22,13 +18,13 @@ public class Calculate {
     }
     //3. 커스텀 구분자 판별
     public static boolean checkCustomSeparator(String input) {
-        return (input.startsWith("//") && input.contains("\n"));
+        return (input.startsWith("//") && input.contains("\\n"));
     }
     //4. 구분자 선언부 제거
     public static String removeSeparator(String input) {
         int startIndex = -1;
-        if (input.contains("\n"))
-            startIndex = input.indexOf("\n")+1;
+        if (input.contains("\\n"))
+            startIndex = input.indexOf("\\n")+2;
         return input.substring(startIndex);
     }
     //5. 커스텀 구분자 도출
