@@ -26,7 +26,7 @@ public class CalculateTest {
     @Test
     void removeSeparatorTest() {
         //given
-        String custom = "//;\n12;3;4";
+        String custom = "//;\\n12;3;4";
         //when
         String splitCustomSeparator = Calculate.removeSeparator(custom);
         //then
@@ -36,21 +36,21 @@ public class CalculateTest {
     @Test
     void getSeparatorTest() {
         //given
-        String custom = "//;\n12;3;4";
+        String custom = "//;\\n12;3;4";
         //when
-        char separator = Calculate.getSeparator(custom);
+        String separator = Calculate.getSeparator(custom);
         //then
-        assertEquals(';', separator);
+        assertEquals(";", separator);
     }
     //6. 식별자 문자인지 판별
     @Test
     void isValidCharacterTest() {
         //given
-        char normal = ',';
-        char custom = ';';
-        char error = '?';
-        char[] normalSeparator = new char[] {',',':'};
-        char[] customSeparator = new char[] {';'};
+        String normal = ",";
+        String custom = ";";
+        String error = "?";
+        String[] normalSeparator = new String[] {",",":"};
+        String[] customSeparator = new String[] {";"};
         //when
         boolean normalCase = Calculate.isSeparator(normal, normalSeparator);
         boolean customCase = Calculate.isSeparator(custom, customSeparator);
@@ -67,8 +67,8 @@ public class CalculateTest {
         String normal = "12:3,4";
         String custom = "12;3;4";
         String error = "12?4/5";
-        char[] normalSeparator = new char[] {',',':'};
-        char[] customSeparator = new char[] {';'};
+        String[] normalSeparator = new String[] {",",":"};
+        String[] customSeparator = new String[] {";"};
         //when
         boolean normalCase = Calculate.isValidInput(normal, normalSeparator);
         boolean customCase = Calculate.isValidInput(custom,  customSeparator);
@@ -83,7 +83,7 @@ public class CalculateTest {
     void splitBySeparatorTest() {
         //given
         String input = "12:3,,4,";
-        char[] separator = new char[] {',',':'};
+        String[] separator = new String[] {",",":"};
 
         ArrayList<String> expectedResult = new ArrayList<>();
         expectedResult.add("12");
