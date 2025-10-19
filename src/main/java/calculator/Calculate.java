@@ -10,22 +10,24 @@ public class Calculate {
     public static String getInput() {
         System.out.println("덧셈할 문자열을 입력해주세요.");
         String input = Console.readLine();
+        if(input.startsWith("//")) {
+            String addStr = Console.readLine();
+            input += "\n" + addStr;
+        }
         return input;
     }
     //2. 결과 출력
     public static void displayResult(int sum) {
-        System.out.println("결과: " + sum);
+        System.out.println("결과 : " + sum);
     }
     //3. 커스텀 구분자 판별
     public static boolean checkCustomSeparator(String input) {
-        return (input.startsWith("//") && (input.contains("\\n") || input.contains("\n")));
+        return (input.startsWith("//") && input.contains("\n"));
     }
     //4. 구분자 선언부 제거
     public static String removeSeparator(String input) {
         int startIndex = -1;
-        if (input.contains("\\n"))
-            startIndex = input.indexOf("\\n")+2;
-        else if (input.contains("\n"))
+        if (input.contains("\n"))
             startIndex = input.indexOf("\n")+1;
         return input.substring(startIndex);
     }
