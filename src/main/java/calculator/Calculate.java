@@ -85,7 +85,7 @@ public class Calculate {
 
         if(checkCustomSeparator(input)) {
             String customSeparator = getSeparator(input);
-            separator = new String[]{customSeparator};
+            separator = new String[]{",",":",customSeparator};
             removeInput = removeSeparator(input);
         }
 

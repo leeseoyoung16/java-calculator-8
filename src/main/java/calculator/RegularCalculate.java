@@ -16,7 +16,7 @@ public class RegularCalculate {
 
         if(matcher.find()) { //커스텀 구분자
             String custom = matcher.group(1);
-            delimiters = new String[]{custom};
+            delimiters = new String[]{",",":",custom};
             numbers = matcher.group(2);
         }
 
